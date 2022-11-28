@@ -1,6 +1,11 @@
 
 
-##ListView
+![](https://github.com/Thralldomm/SmesharikiFromBD/blob/main/ex1.png?raw=true)
+![](https://github.com/Thralldomm/SmesharikiFromBD/blob/main/ex2.png?raw=true)
+![](https://github.com/Thralldomm/SmesharikiFromBD/blob/main/ex3.png?raw=true)
+![](https://github.com/Thralldomm/SmesharikiFromBD/blob/main/ex4.png?raw=true)
+
+## ListView
 
 ```
 <ListView Grid.Row ="0"
@@ -63,7 +68,7 @@
  
 
 
-##DataGrid
+## DataGrid
 
 ```
 
@@ -132,7 +137,7 @@
 
 
 
-##D - Delete
+## D - Delete
 
 ```
 
@@ -181,7 +186,7 @@ private void DeleteButton_Click(object sender, RoutedEventArgs e)
 
 ### Error
 
-####the object cannot be deleted because it was not found in the objectstatemanager
+#### the object cannot be deleted because it was not found in the objectstatemanager
 
 Attach Before Deleting
 
@@ -210,7 +215,7 @@ Attach Before Deleting
 
 
 
-##C - Create
+## C - Create
 
 
 
@@ -307,7 +312,7 @@ private void SaveButton_Click_1(object sender, RoutedEventArgs e)
 
 
 
-##Возникло исключение stackoverflow 
+## Возникло исключение stackoverflow 
 
 В MainWindow создавался экземпляр страницы BallPage, в BallPage создавался экземпляр MainWindow. Получился бесконечный цикл
 
@@ -315,7 +320,7 @@ private void SaveButton_Click_1(object sender, RoutedEventArgs e)
 
 
 
-####MainWindow:
+#### MainWindow:
 ```
  public MainWindow()
         {
@@ -328,7 +333,7 @@ private void SaveButton_Click_1(object sender, RoutedEventArgs e)
 
 
 
-####BallPage:
+#### BallPage:
 ```
  private MainWindow mainWindow;
          
@@ -354,20 +359,22 @@ private void SaveButton_Click_1(object sender, RoutedEventArgs e)
 
 
 
-##U - Update
+## U - Update
 
-Используем тот же AddPage, немного его модифицировав. Теперь в его конструктор принимаем объект.
-А в случае добавления передаем null
+Используем логику AddPage
 
 
 ```
 
- BallInfoes ball = new BallInfoes();
+        BallInfoes ball = new BallInfoes();
+        MainWindow mainWindow;
 
 
-        public UpdatePage(BallInfoes bally)
+        public UpdatePage(BallInfoes bally, MainWindow main)
         {
             InitializeComponent();
+
+            mainWindow = main;
 
             ball = null;
 
@@ -510,10 +517,3 @@ using (DataModel db = new DataModel())
         }
 
 ```
-
-
-
-
-
-
-
